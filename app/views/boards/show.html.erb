@@ -32,7 +32,8 @@
   <button>
     Add post
   </button>
-</form>
+
+  </form>
 <hr>
 
 <h2>
@@ -45,7 +46,7 @@
     <th>Posted on</th>
     <th>Expires on</th>
   </tr>
-  <% @list_of_posts.each do |a_post| %>
+  <% @active_posts.each do |a_post| %>
   <tr>
     <td><%= a_post.title %></td>
     <td><%= a_post.body %></td>
@@ -58,3 +59,19 @@
 <h2>
   Expired posts
 </h2>
+<table border="1">
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Posted on</th>
+    <th>Expires on</th>
+  </tr>
+  <% @expired_posts.each do |a_post| %>
+  <tr>
+    <td><%= a_post.title %></td>
+    <td><%= a_post.body %></td>
+    <td><%= a_post.created_at.strftime("%b %d, %Y") %></td>
+    <td><%= a_post.expires_on.strftime("%b %d, %Y") %></td>
+  </tr>
+  <% end %>
+</table>
